@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// void main(){runApp(homeMarketPage());}
+
 class homeMarketPage extends StatefulWidget {
   const homeMarketPage({super.key});
 
@@ -9,6 +11,15 @@ class homeMarketPage extends StatefulWidget {
 
 class _homeMarketPageState extends State<homeMarketPage> {
   @override
+  final List _list = [
+    ['assets/cardImages/food1.jpg', 'title1', 'subtitle1'],
+    ['assets/cardImages/food2.jpg', 'title2', 'subtitle2'],
+    ['assets/cardImages/food3.jpg', 'title3', 'subtitle3'],
+    ['assets/cardImages/food4.jpg', 'title4', 'subtitle4'],
+    ['assets/cardImages/food5.jpg', 'title5', 'subtitle5'],
+    ['assets/cardImages/food6.jpg', 'title6', 'subtitle6'],
+  ];
+
   List<Card> _listGridCard(int count) {
     List<Card> cards = List.generate(count, (int index) {
       return Card(
@@ -16,7 +27,25 @@ class _homeMarketPageState extends State<homeMarketPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Image.asset('assets/cardImages/squareFood.jpg'),
+            ///this line reads file from list and help generating cards faster
+            // Image.asset(_list[index][0]),
+
+            SizedBox(
+              height: 50,
+              width: 50,
+              child: Image.asset(
+                _list[index][0],
+                fit: BoxFit.fill,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+              ),
+            ),
+
+            ///this line reads image address from list and fit it into the card
+            /*AspectRatio(
+               aspectRatio: 18 / 11,
+               child: Image.asset(_list[index][0]),
+             ),*/
 
             ///using AspectRatio is not necessary.
             ///It just give you more flexibility
@@ -25,11 +54,11 @@ class _homeMarketPageState extends State<homeMarketPage> {
             //   child: Image.asset('assets/cardImages/squareFood.jpg'),
             // ),
 
-            const Padding(
+            Padding(
               padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [Text("Title1"), Text("Second title")],
+                children: [Text(_list[index][1]), Text(_list[index][2])],
               ),
             )
           ],
@@ -75,25 +104,4 @@ class _homeMarketPageState extends State<homeMarketPage> {
       ),
     );
   }
-}
-
-class _recipt  {
-  List<List<String>> description = [
-    ["title1", "subtitle1"],
-    ["title2", "subtitle2"],
-    ["title3", "subtitle3"],
-    ["title4", "subtitle4"],
-    ["title5", "subtitle5"],
-    ["title6", "subtitle6"],
-  ];
-
-  List<Image> imageAddresses = [
-    Image.asset('assets/cardImages/food1.jpg'),
-    Image.asset('assets/cardImages/food2.jpg'),
-    Image.asset('assets/cardImages/food3.jpg'),
-    Image.asset('assets/cardImages/food4.jpg'),
-    Image.asset('assets/cardImages/food5.jpg'),
-    Image.asset('assets/cardImages/food6.jpg'),
-  ];
-
 }

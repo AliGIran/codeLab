@@ -64,6 +64,13 @@ flutter:
     - assets/cardImages/circleFood.jpg
     - assets/cardImages/squareFood.jpg
     - assets/cardImages/food1.jpg
+    - assets/cardImages/food2.jpg
+    - assets/cardImages/food3.jpg
+    - assets/cardImages/food4.jpg
+    - assets/cardImages/food5.jpg
+    - assets/cardImages/food6.jpg
+
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
