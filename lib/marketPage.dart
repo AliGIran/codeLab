@@ -30,14 +30,10 @@ class _homeMarketPageState extends State<homeMarketPage> {
             ///this line reads file from list and help generating cards faster
             // Image.asset(_list[index][0]),
 
-            SizedBox(
-              height: 50,
-              width: 50,
+            Expanded(
               child: Image.asset(
                 _list[index][0],
-                fit: BoxFit.fill,
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
+                fit: BoxFit.cover,
               ),
             ),
 
@@ -55,7 +51,7 @@ class _homeMarketPageState extends State<homeMarketPage> {
             // ),
 
             Padding(
-              padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+              padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [Text(_list[index][1]), Text(_list[index][2])],
@@ -99,7 +95,7 @@ class _homeMarketPageState extends State<homeMarketPage> {
       body: GridView.count(
         crossAxisCount: 2,
         padding: const EdgeInsets.all(20),
-        childAspectRatio: 8 / 8,
+        childAspectRatio: 8 / 10,
         children: _listGridCard(6),
       ),
     );
